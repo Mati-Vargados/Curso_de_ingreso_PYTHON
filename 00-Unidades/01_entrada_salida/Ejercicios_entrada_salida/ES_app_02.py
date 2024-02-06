@@ -27,9 +27,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        alert("gay", "gay")
-        pass
+        #snake_case
+        nombre = "PEPE"
+        altura = "1,78"
+        alert("Datos", f"Ud se llama: {nombre} y su altura es {altura}")
         
+
         
     
 if __name__ == "__main__":
