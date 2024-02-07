@@ -52,13 +52,97 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+
+        importe1 = self.txt_importe_1.get()
+
+        importe2 = self.txt_importe_2.get()
+
+        importe3 = self.txt_importe_3.get()
+
+
+        importe1 = float(importe1)
+
+        importe2 = float(importe2)
+
+        importe3 = float(importe3) 
+
+
+        resultado = importe1 + importe2 + importe3
+
+
+        alert("UTN Resultado", f"La totalidad del o de los importes es {resultado}")
+
+
+        self.txt_importe_1.delete(0, "end")
+
+        self.txt_importe_2.delete(0, "end")
+
+        self.txt_importe_3.delete(0, "end")
+
 
     def btn_promedio_on_click(self):
-        pass
+
+        importe1 = self.txt_importe_1.get()
+
+        importe2 = self.txt_importe_2.get()
+
+        importe3 = self.txt_importe_3.get()
+
+
+        importe1 = float(importe1)
+
+        importe2 = float(importe2)
+
+        importe3 = float(importe3) 
+
+
+        promedioparte1 = importe1 + importe2 + importe3
+
+        promedioparte2 = promedioparte1 / 3
+
+
+        alert("UTN Promedio", f"El promedio de las importaciones es {promedioparte2}")
+
+
+        self.txt_importe_1.delete(0, "end")
+
+        self.txt_importe_2.delete(0, "end")
+
+        self.txt_importe_3.delete(0, "end")
+
+
+        
 
     def btn_total_iva_on_click(self):
-        pass      
+
+        importe1 = self.txt_importe_1.get()
+
+        importe2 = self.txt_importe_2.get()
+
+        importe3 = self.txt_importe_3.get()
+
+
+        importe1 = float(importe1)
+
+        importe2 = float(importe2)
+
+        importe3 = float(importe3)   
+
+                                                #un aumento del 21% por iva
+
+        sumas = importe1 + importe2 + importe3
+
+        iva = sumas * 0.21
+
+        alert("UTN Total Iva", f"El valor total de las importaciones mas el iva es " + str(iva))
+
+
+        self.txt_importe_1.delete(0, "end")
+
+        self.txt_importe_2.delete(0, "end")
+
+        self.txt_importe_3.delete(0, "end")
+
     
 if __name__ == "__main__":
     app = App()
