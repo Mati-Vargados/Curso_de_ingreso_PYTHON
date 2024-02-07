@@ -49,16 +49,60 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        pass
+        operador_a = self.txt_operador_a.get()
+        operador_b = self.txt_operador_b.get()
+
+        operador_a = int(operador_a)
+        operador_b = int(operador_b)
+
+        resultado = operador_a + operador_b
+        mensaje = resultado
+
+        alert("UTN Resultados", f"el resultado puede llegar a serr..... {mensaje}")
+        self.txt_operador_a.delete(0, "end")
+        self.txt_operador_b.delete(0, "end")
 
     def btn_restar_on_click(self):
-        pass
+        operador_a = self.txt_operador_a.get()
+        operador_b = self.txt_operador_b.get()
+
+        operador_a = int(operador_a)
+        operador_b = int(operador_b)
+
+        resultado = operador_a - operador_b
+        mensaje = resultado
+
+        alert("UTN Resultados", f"el resultado puede llegar a serr..... {mensaje}")
+        self.txt_operador_a.delete(0, "end")
+        self.txt_operador_b.delete(0, "end")
 
     def btn_multiplicar_on_click(self):
-        pass
+        operador_a = self.txt_operador_a.get()
+        operador_b = self.txt_operador_b.get()
+
+        operador_a = int(operador_a)
+        operador_b = int(operador_b)
+
+        resultado = operador_a * operador_b
+        mensaje = resultado
+
+        alert("UTN Resultados", f"el resultado puede llegar a serr..... {mensaje}")
+        self.txt_operador_a.delete(0, "end")
+        self.txt_operador_b.delete(0, "end")
 
     def btn_dividir_on_click(self):
-        pass
+        operador_a = self.txt_operador_a.get()
+        operador_b = self.txt_operador_b.get()
+
+        operador_a = int(operador_a)
+        operador_b = int(operador_b)
+
+        resultado = operador_a / operador_b
+        mensaje = resultado
+
+        alert("UTN Resultados", f"el resultado puede llegar a serr..... {mensaje}")
+        self.txt_operador_a.delete(0, "end")
+        self.txt_operador_b.delete(0, "end")
         
 if __name__ == "__main__":
     app = App()

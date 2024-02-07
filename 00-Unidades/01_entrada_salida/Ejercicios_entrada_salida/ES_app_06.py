@@ -39,8 +39,23 @@ class App(customtkinter.CTk):
 
 
     def btn_sumar_on_click(self):
-       
-        
+
+        operador_a = self.txt_operador_a.get()
+        operador_b = self.txt_operador_b.get()
+
+        operador_a = int(operador_a)
+        operador_b = int(operador_b)
+
+        resultado = operador_a + operador_b 
+
+        mensaje = resultado
+
+        alert("UTN Resultados", f"El resultado essss..... " + str(mensaje))
+        self.txt_operador_a.delete(0, "end")
+        self.txt_operador_b.delete(0, "end")
+
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -40,7 +40,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        operador_a = self.txt_operador_a.get()
+        operador_b = self.txt_operador_b.get()
+
+        operador_a = float(operador_a)
+        operador_b = float(operador_b)
+
+        resultado = operador_a % operador_b
+        mensaje = resultado
+
+        alert("UTN Resultados", f"el resto de la division de {operador_a} / {operador_b} es {mensaje}")
+        self.txt_operador_a.delete(0, "end")
+        self.txt_operador_b.delete(0, "end")
         
         
     

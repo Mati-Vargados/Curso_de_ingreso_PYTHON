@@ -33,8 +33,21 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
+
+        sueldo = self.txt_sueldo.get()
+    
+        sueldo = float(sueldo)
+    
+        aumento_15 = sueldo * 0.15
+    
+        mensaje = aumento_15 
+    
+        alert("UNT Impuestos", f"Su sueldo aumento + " + str(mensaje) + " por una suma del 15%")
+    
+        self.txt_sueldo.delete(0,"end")
+    
+
+    
     
 if __name__ == "__main__":
     app = App()

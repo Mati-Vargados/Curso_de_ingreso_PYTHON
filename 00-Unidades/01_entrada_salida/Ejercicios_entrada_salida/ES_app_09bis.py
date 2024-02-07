@@ -39,8 +39,21 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
+
+        sueldo = self.txt_sueldo.get()
+        incremento = self.txt_incremento.get()
+
+        sueldo = float(sueldo)
+        incremento = float(incremento)
+
+        incremento = incremento / 100
+
+        iva = sueldo * incremento 
+
+        alert("UTN impuestos", f"La sumatoria de tu sueldo (" + str(sueldo) + ") + el iva, que es  "  + str(iva))
+
+        self.txt_sueldo.delete(0, "end")
+        self.txt_incremento.delete(0, "end")
     
 if __name__ == "__main__":
     app = App()
