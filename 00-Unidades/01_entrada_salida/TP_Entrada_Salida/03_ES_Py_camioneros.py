@@ -1,9 +1,9 @@
-import math 
 import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import math 
 
 '''
 nombre: Matias
@@ -58,9 +58,7 @@ class App(customtkinter.CTk):
 
         camion = toneladas2 / 3500
 
-        math.ceil(camion)
-
-        alert("UTN transporte", f"es necesario {camion} camiones")
+        alert("UTN transporte", f"es necesario {math.ceil(camion)} camiones")
 
         self.txt_toneladas.delete(0, "end")
 
@@ -73,9 +71,11 @@ class App(customtkinter.CTk):
 
         tiempo = kilometros / 90 
 
+                # multiplico el timpo x 60 y uso un modulo de 60 para conseguit el valor de los minutos restantes
         minutos = (tiempo * 60) % 60
              
                 #"%02d:%02d"% (lo busque en internet)
+                # es una cadena que sirve para formatear el tiempo y los minutos en un formato de 2 digitos
         resultado = "%02d:%02d"%(tiempo, minutos)
 
         alert("UTN transporte", f"Va a tardar en llegar {resultado}hs")
