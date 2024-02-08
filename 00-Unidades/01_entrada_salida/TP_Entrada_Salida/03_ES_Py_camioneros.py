@@ -1,3 +1,4 @@
+import math 
 import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
@@ -57,9 +58,9 @@ class App(customtkinter.CTk):
 
         camion = toneladas2 / 3500
 
-            #arreglarlo
+        math.ceil(camion)
 
-        alert("UTN transporte", f"es necesario {int(camion)} camiones")
+        alert("UTN transporte", f"es necesario {camion} camiones")
 
         self.txt_toneladas.delete(0, "end")
 
