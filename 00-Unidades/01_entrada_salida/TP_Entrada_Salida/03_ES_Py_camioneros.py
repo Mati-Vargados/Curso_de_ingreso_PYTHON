@@ -48,14 +48,18 @@ class App(customtkinter.CTk):
     def btn_cantidad_camiones_on_click(self):
 
 
-        toneladas = self.txt_toneladas.get()
+        toneladas1 = self.txt_toneladas.get()
 
-        toneladas = float(toneladas)
+        toneladas1 = float(toneladas1)
                 # 1 camion = a 3500kg
-        camion = toneladas / 3500
+        
+        toneladas2 = toneladas1 * 1000
 
+        camion = toneladas2 / 3500
 
-        alert("UTN transporte", f"es necesario {camion} camiones")
+            #arreglarlo
+
+        alert("UTN transporte", f"es necesario {int(camion)} camiones")
 
         self.txt_toneladas.delete(0, "end")
 
@@ -64,12 +68,16 @@ class App(customtkinter.CTk):
         
         kilometros = self.txt_kilometros.get()
 
-        kilometros = float(kilometros)
+        kilometros = int(kilometros)
 
-        camion = kilometros / 90 
+        tiempo = kilometros / 90 
 
+        minutos = (tiempo * 60) % 60
+             
+                #"%02d:%02d"% (lo busque en internet)
+        resultado = "%02d:%02d"%(tiempo, minutos)
 
-        alert("UTN transporte", f"Va a tardar en llegar {camion}hs")
+        alert("UTN transporte", f"Va a tardar en llegar {resultado}hs")
 
         self.txt_kilometros.delete(0, "end")
     
