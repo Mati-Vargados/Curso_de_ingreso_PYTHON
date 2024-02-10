@@ -41,9 +41,10 @@ class App(customtkinter.CTk):
         elif numero_aleatorio <= 5:
             mensaje = f"Aprobado, la nota es {numero_aleatorio}" 
         
-        elif numero_aleatorio <= 10:
+        else:
             mensaje = f"Promoción directa, la nota es {numero_aleatorio}"
-        pass
+
+       
     
         alert("UTN", mensaje)
 

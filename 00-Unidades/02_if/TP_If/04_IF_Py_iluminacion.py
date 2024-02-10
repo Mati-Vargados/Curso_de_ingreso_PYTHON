@@ -50,36 +50,42 @@ class App(customtkinter.CTk):
 
         cantidad_int = int(cantidad)
 
-        if cantidad_int >= 6 and cantidad_int <= 9 and marca:
-            mensaje = "Descuento del 50%"
-
-        elif cantidad_int == 5 and marca == "ArgentinaLuz":
-            mensaje = "Descuento del 40 %"
-
-        elif cantidad_int == 5 and marca:
-            mensaje = "Descuento del 30 %"
-
-        elif (cantidad_int == 4 and marca == "ArgentinaLuz") or (cantidad_int == 4 and marca == "FelipeLamparas"):
-            mensaje = "Descuento del 25 %"
-
-        elif cantidad_int == 4 and marca:
-            mensaje = "Descuento del 20 %"
         
-        elif cantidad_int == 3 and marca == "ArgentinaLuz":
-            mensaje = "Descuento del 15 %"
+        if cantidad_int >= 6 and cantidad_int <= 9 and marca:
+                mensaje = "Descuento del 50%"
+            
+        elif cantidad_int == 5:
+            if marca == "ArgentinaLuz":
+                mensaje = "Descuento del 40 %"
+            else:
+                mensaje = "Descuento del 30 %"
 
-        elif cantidad_int == 3 and marca == "FelipeLamparas":
-            mensaje = "Descuento del 10 %"
+        elif cantidad_int == 4:
+            if marca == "ArgentinaLuz":
+                mensaje = "Descuento del 25 %"
+            elif marca == "FelipeLamparas":
+                mensaje = "Descuento del 25 %"
+            else:
+                mensaje = "Descuento del 20 %"
+                  
+        
+        elif cantidad_int == 3: 
+            if marca == "ArgentinaLuz":
+                mensaje = "Descuento del 15 %"
+            elif marca == "FelipeLamparas":
+                mensaje = "Descuento del 10 %"
+            else:
+                mensaje = "Descuento del 5 %"
+            
+            #Los unicos descuntos que pueden llegar a +4000 son los que pasan las 10 lamparitas
+        elif cantidad_int >= 10:
+                mensaje = "Descuento del 50% + el 5%"      
 
-        elif cantidad_int == 3 and marca:
-            mensaje = "Descuento del 5 %"
+        else:
+            mensaje = "No hay descuento"
+        
 
-        elif cantidad_int >= 10 and marca:
-            mensaje = "Descuento del 50% + un 5% mas"
-                            #Los unicos descuntos que pueden llegar a +4000 son los que pasan las 10 lamparitas
-        pass
-
-        alert("", mensaje)
+        alert("UTN Descuentos", mensaje)
             
 
 

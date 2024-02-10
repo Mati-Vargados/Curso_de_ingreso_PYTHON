@@ -45,24 +45,31 @@ class App(customtkinter.CTk):
         
         edad = self.txt_edad.get()
 
-        edad_int = int(edad)
+        edad = int(edad)
 
+        if edad < 13: #a
+            mensaje = "Feliz dia"
 
-        tipo_usuario = self.combobox_tipo.get()
-
-        #if edad_int >= 16 and tipo_usuario == "NATIVO":
-            #mensaje = "Puede votar"
+        elif edad < 18: #b
+            mensaje = "usted es adolscente" 
+            if edad == 17:
+                mensaje = "Último año!!!"
+                 
         
-        #elif edad_int >= 18 and tipo_usuario == "NATURALIZADO":
-            #mensaje = "Puede votar"
+        elif edad >= 18: #c
+            mensaje = "Tenes edad para laburar"
+            if edad == 33:
+                mensaje = "Como Cristo"
+            elif edad >= 60: 
+                mensaje = "A jubilarse"
+            elif edad == 88: 
+                mensaje = "lindo numero"
+
+        alert("Edades", mensaje)
         
-        if (edad_int >= 16 and tipo_usuario == "NATIVO") or (edad_int >= 18 and tipo_usuario == "NATURALIZADO"):
-            mensaje = "Podes votar"
-        else:
-            mensaje = "No podes votar"
 
         
-        alert("UTN Candidaturas", mensaje)
+
 
         
 
