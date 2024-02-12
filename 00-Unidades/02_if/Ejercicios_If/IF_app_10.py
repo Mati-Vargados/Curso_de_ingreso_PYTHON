@@ -44,8 +44,7 @@ class App(customtkinter.CTk):
         else:
             mensaje = f"Promoción directa, la nota es {numero_aleatorio}"
 
-       
-    
+
         alert("UTN", mensaje)
 
             

@@ -55,9 +55,9 @@ class App(customtkinter.CTk):
           mensaje = "no podes votar"
 
       alert("UTN", mensaje)  
-        
-            
-    if __name__ == "__main__":
-        app = App()
-        app.geometry("300x300")
-        app.mainloop()
+
+
+if __name__ == "__main__":
+    app = App()
+    app.geometry("300x300")
+    app.mainloop()
