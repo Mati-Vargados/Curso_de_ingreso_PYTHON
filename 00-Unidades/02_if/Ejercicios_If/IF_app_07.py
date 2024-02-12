@@ -43,41 +43,21 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         
-        edad = self.txt_edad.get()
+      edad = self.txt_edad.get()
 
-        edad = int(edad)
+      edad = int(edad)
 
-        if edad < 13: #a
-            mensaje = "Feliz dia"
+      argentinos = self.combobox_tipo.get()
 
-        elif edad < 18: #b
-            mensaje = "usted es adolscente" 
-            if edad == 17:
-                mensaje = "Último año!!!"
-                 
+      if (edad >= 16 and argentinos == "NATIVO") or (edad >= 18 and argentinos == "NATURALIZADO"): 
+          mensaje = "podes votar"
+      else:
+          mensaje = "no podes votar"
+
+      alert("UTN", mensaje)  
         
-        elif edad >= 18: #c
-            mensaje = "Tenes edad para laburar"
-            if edad == 33:
-                mensaje = "Como Cristo"
-            elif edad >= 60: 
-                mensaje = "A jubilarse"
-            elif edad == 88: 
-                mensaje = "lindo numero"
-
-        alert("Edades", mensaje)
-        
-
-        
-
-
-        
-
-
-        
-        
-    
-if __name__ == "__main__":
-    app = App()
-    app.geometry("300x300")
-    app.mainloop()
+            
+    if __name__ == "__main__":
+        app = App()
+        app.geometry("300x300")
+        app.mainloop()
