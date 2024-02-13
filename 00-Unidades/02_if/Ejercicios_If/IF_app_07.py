@@ -43,19 +43,37 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         
-      edad = self.txt_edad.get()
+     edad = self.txt_edad.get()
+     edad = int(edad)
 
-      edad = int(edad)
 
-      argentinos = self.combobox_tipo.get()
+     if edad <= 13:
+        mensaje = "Feliz dia"
 
-      if (edad >= 16 and argentinos == "NATIVO") or (edad >= 18 and argentinos == "NATURALIZADO"): 
-          mensaje = "podes votar"
-      else:
-          mensaje = "no podes votar"
+     elif edad <= 17:
+        if edad < 17:
+           mensaje = "Usted es un adolesente"
+        else:
+           mensaje = "Usted es un adolescente y es su último año"
+    
+     elif edad >=18:
+        if edad == 33:
+            mensaje = "Tenes edad de laburar y estas como cristo"
+        elif edad >= 60:
+            if edad == 88:
+                mensaje = "lindo numero"
+            else:
+               mensaje = "A jubilarse"
+        else: 
+           mensaje = "tenes edad para laburar"
 
-      alert("UTN", mensaje)  
+     
+     if edad % 2 == 0:
+        mensaje = f"{mensaje} y sos par"
 
+     alert("UTN", mensaje)
+    
+    #se que tarde en entregar pero sinceramente me costo mucho, oajala lo puedan ver y darme su correccion.
 
 if __name__ == "__main__":
     app = App()
