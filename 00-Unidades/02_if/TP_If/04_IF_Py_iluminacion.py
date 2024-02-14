@@ -44,55 +44,68 @@ class App(customtkinter.CTk):
 
     def btn_calcular_on_click(self):
         
+     def btn_calcular_on_click(self):
         marca = self.combobox_marca.get()
-
         cantidad = self.combobox_cantidad.get()
-
         cantidad_int = int(cantidad)
 
-        
-        if cantidad_int >= 6 and cantidad_int <= 9 and marca:
-                mensaje = "Descuento del 50%"
-            
+        descuento_uno = "Tengo un descuento del 50%"
+        descuento_dos = "Tengo un descuento del 40%"
+        descuento_tres = "Tengo un descuento del 30%"
+        descuento_cuatro = "Tengo un descuento del 25%"
+        descuento_cinco = "Tengo un descuento del 20%"
+        descuento_seis = "Tengo un descuento del 15%"
+        descuento_siete = "Tengo un descuento del 10%"
+        descuento_ocho = "Tengo un descuento del 5%"
+
+        precio_lampara = 800
+        precio_cantidad = precio_lampara * cantidad_int
+
+        descuento = 0
+        mensaje_de_descuento = 0
+
+        if cantidad_int == 3:
+            if marca == "ArgentinaLuz":
+                descuento = 0.15
+                mensaje_de_descuento = descuento_seis
+            elif marca == "FelipeLamparas":
+                descuento = 0.10
+                mensaje_de_descuento = descuento_siete
+            else:
+                descuento = 0.05
+                mensaje_de_descuento = descuento_ocho
+        elif cantidad_int == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento = 0.25
+                mensaje_de_descuento = descuento_cuatro
+            else:
+                descuento = 0.2
+                mensaje_de_descuento = descuento_cinco
         elif cantidad_int == 5:
             if marca == "ArgentinaLuz":
-                mensaje = "Descuento del 40 %"
+                descuento = 0.4
+                mensaje_de_descuento = descuento_dos
             else:
-                mensaje = "Descuento del 30 %"
-
-        elif cantidad_int == 4:
-            if marca == "ArgentinaLuz":
-                mensaje = "Descuento del 25 %"
-            elif marca == "FelipeLamparas":
-                mensaje = "Descuento del 25 %"
-            else:
-                mensaje = "Descuento del 20 %"
-                  
+                descuento = 0.3
+                mensaje_de_descuento = descuento_tres  
+        elif cantidad_int >= 6:
+                descuento = 0.5
+                mensaje_de_descuento = descuento_uno 
         
-        elif cantidad_int == 3: 
-            if marca == "ArgentinaLuz":
-                mensaje = "Descuento del 15 %"
-            elif marca == "FelipeLamparas":
-                mensaje = "Descuento del 10 %"
-            else:
-                mensaje = "Descuento del 5 %"
-            
-            #Los unicos descuntos que pueden llegar a +4000 son los que pasan las 10 lamparitas
-        elif cantidad_int >= 10:
-                mensaje = "Descuento del 50% + el 5%"      
+        valor_final = precio_cantidad - (precio_cantidad * descuento)
 
-        else:
-            mensaje = "No hay descuento"
-        
+        mensaje_de_descuento_adicional = ""
 
-        alert("UTN Descuentos", mensaje)
-            
+        if valor_final > 4000:
+            descuento_adicional = 0.05
+            valor_final = valor_final - (valor_final * descuento_adicional)
+            mensaje_de_descuento_adicional = "Obtuviste un adicional del 5%"
+
+        mensaje = f"Tu valor final es de {valor_final} y el descuento es de {mensaje_de_descuento}. {mensaje_de_descuento_adicional}"
+
+        alert("UTN", mensaje)
 
 
-
-
-        
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
