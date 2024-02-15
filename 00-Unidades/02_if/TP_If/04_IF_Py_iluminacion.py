@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
 
     def btn_calcular_on_click(self):
         
-     def btn_calcular_on_click(self):
+     
         marca = self.combobox_marca.get()
         cantidad = self.combobox_cantidad.get()
         cantidad_int = int(cantidad)

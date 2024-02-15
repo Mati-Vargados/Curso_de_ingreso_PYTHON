@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Vargados
 ---
 Ejercicio: Match_09
 ---
@@ -16,17 +16,17 @@ Luego para calcular las tarifas total realiza el siguiente cálculo,
 en función de la estación del año y del destino elegido:
     Si es invierno: 
         Bariloche tiene un aumento del 20% 
-        Cataratas y Córdoba tienen un descuento del 10%
-        Mar del plata tiene un descuento del 20%
+        Cataratas y Córdoba tienen un porcentaje del 10%
+        Mar del plata tiene un porcentaje del 20%
     Si es Verano:
-        Bariloche tiene un descuento del 20%
+        Bariloche tiene un porcentaje del 20%
         Cataratas y Cordoba tienen un aumento del 10%
         Mar del plata tiene un aumento del 20%
     Si es Primavera u Otoño:
         Bariloche tiene un aumento del 10%
         Cataratas tiene un aumento del 10%
         Mar del plata tiene un aumento del 10%
-        Córdoba tiene precio sin descuento
+        Córdoba tiene precio sin porcentaje
 
 '''
 
@@ -57,7 +57,60 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        
+        estaciones = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+        
+        viajes = 15000
+        
+        match estaciones:
+            case 'Invierno':
+                if destino == "Bariloche":
+                    porcentaje = - 0.2
+                    mensaje = 20
+                elif destino == "Mar del plata":
+                    porcentaje = 0.2 
+                    mensaje = - 20 
+                else:
+                    porcentaje = 0.1 
+                    mensaje = - 10 
+            #Si es invierno: 
+           # Bariloche tiene un aumento del 20% 
+            #Cataratas y Córdoba tienen un porcentaje del 10%
+           # Mar del plata tiene un porcentaje del 20%
+            case "Verano":
+                match destino:
+                    case "Bariloche":
+                        porcentaje = 0.2
+                        mensaje = - 20
+                    case "Mar del plata":
+                        porcentaje = - 0.2
+                        mensaje = 20
+                    case _:
+                        porcentaje = - 0.1 
+                        mensaje = 10 
+            #Si es Verano:
+            #Bariloche tiene un porcentaje del 20%
+            #Cataratas y Cordoba tienen un aumento del 10%
+            #Mar del plata tiene un aumento del 20%
+            case _: 
+                match destino:
+                    case "Cordoba":
+                        porcentaje = 0
+                        mensaje = 0
+                    case _:
+                        porcentaje = - 0.1
+                        mensaje = 10 
+        #Si es Primavera u Otoño:
+        #Bariloche tiene un aumento del 10%
+        #Cataratas tiene un aumento del 10%
+        #Mar del plata tiene un aumento del 10%
+        #Córdoba tiene precio sin porcentaje
+
+        valor_final = viajes - (viajes * porcentaje)
+
+        alert("UTN", f"Tu estadia {mensaje}% te saldria ${valor_final}")
+
             
     
 if __name__ == "__main__":

@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Vargados
 ---
 Ejercicio: while_02bis
 ---
@@ -27,10 +27,14 @@ class App(customtkinter.CTk):
         self.btn_mostrar_iteracion = customtkinter.CTkButton(master=self, text="Mostrar iteración", command=self.btn_mostrar_iteracion_on_click)
         self.btn_mostrar_iteracion.grid(row=2, pady=20, columnspan=2, sticky="nsew")
         
-    
+        #2,4,6,8
     def btn_mostrar_iteracion_on_click(self):
-        pass
-    
+        
+        intercion = 0 
+
+        while intercion < 8:
+            intercion += 2
+            alert("UTN", intercion)  
     
 if __name__ == "__main__":
     app = App()
