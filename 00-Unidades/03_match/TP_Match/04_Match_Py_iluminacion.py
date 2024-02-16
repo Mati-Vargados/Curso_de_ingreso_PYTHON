@@ -61,7 +61,7 @@ class App(customtkinter.CTk):
 
 
        match cantidad:
-            case "3":
+            case 3:
                match marca:
                    
                    case "ArgentinaLuz":
@@ -73,7 +73,7 @@ class App(customtkinter.CTk):
                    case _:
                        descuento = 0.05
                        
-            case "4":
+            case 4:
                match marca:
                    case "ArgentinaLuz" | "FelipeLamparas":
                        descuento = 0.25
@@ -81,7 +81,7 @@ class App(customtkinter.CTk):
                    case _:
                        descuento = 0.2
                        
-            case "5":
+            case 5:
                match marca: 
                    case "ArgentinaLuz":
                        descuento = 0.4
@@ -89,20 +89,18 @@ class App(customtkinter.CTk):
                    case _:
                        descuento = 0.3
                                     
-            case "6": 
+            case 6: 
                match marca:
                    case _:
                        descuento = 0.5
             
        descuento_estetico = descuento * 100
        
-        #valor_final = precio_cantidad - (precio_cantidad * descuento)
-       
        valor_final = precio_cantidad -  (precio_cantidad * descuento)
 
        mensaje_secreto = ""
 
-       match valor_final > 4000:
+       match valor_final >= 4000:
            
            case valor_final:
                valor_final -= (valor_final * 0.5)

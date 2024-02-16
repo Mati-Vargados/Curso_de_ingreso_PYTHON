@@ -27,14 +27,31 @@ class App(customtkinter.CTk):
         self.btn_mostrar_iteracion = customtkinter.CTkButton(master=self, text="Mostrar iteración", command=self.btn_mostrar_iteracion_on_click)
         self.btn_mostrar_iteracion.grid(row=2, pady=20, columnspan=2, sticky="nsew")
         
-        #2,4,6,8
+        #2,4,6,8,10
     def btn_mostrar_iteracion_on_click(self):
-        
-        intercion = 0 
+         
+         #contador = 1
+         #suma = 0 
 
-        while intercion < 8:
-            intercion += 2
-            alert("UTN", intercion)  
+         #while contador <= 10: 
+
+            #if contador % 2 == 0: # para sacar el numero par
+                #suma += contador #sumo los numeros pares
+
+            #contador += 1
+
+         #alert("UTN", suma)  
+        
+        contador = 2
+        suma = 0 
+
+        while contador <= 10:
+            suma += contador
+            contador += 2
+        
+        alert("UTN", suma)
+
+
     
 if __name__ == "__main__":
     app = App()
