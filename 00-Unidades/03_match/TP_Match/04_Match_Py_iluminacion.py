@@ -44,70 +44,69 @@ class App(customtkinter.CTk):
 
     def btn_calcular_on_click(self):
        
+       lamparas = 800 
+
        marca = self.combobox_marca.get()
 
        cantidad = self.combobox_cantidad.get()
 
        cantidad = int(cantidad)
 
-       lamparas = 800
-
-       precio_cantidad = lamparas * cantidad
-       
-       descuento = 0 
-
-       descuento_estetico = 0 
-
-
+       valor_total_lamparas = lamparas * cantidad
 
        match cantidad:
-            case 3:
+       
+           case 5:
                match marca:
                    
-                   case "ArgentinaLuz":
+                    case "ArgentinaLuz":
+                       descuento = 0.4
+
+                    case _:
+                       descuento = 0.3
+
+       
+           case 4: 
+               match marca:
+                   
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                       descuento = 0.25
+
+                    case _:
+                       descuento = 0.2
+        
+           case 3: 
+               match marca:
+                   
+                    case "ArgentinaLuz":
                        descuento = 0.15
-                       
-                   case "FelipeLamparas":
+
+                    case "FelipeLamparas":
                        descuento = 0.1
-                       
-                   case _:
+
+                    case _:
                        descuento = 0.05
                        
-            case 4:
-               match marca:
-                   case "ArgentinaLuz" | "FelipeLamparas":
-                       descuento = 0.25
-                       
-                   case _:
-                       descuento = 0.2
-                       
-            case 5:
-               match marca: 
-                   case "ArgentinaLuz":
-                       descuento = 0.4
-                       
-                   case _:
-                       descuento = 0.3
-                                    
-            case 6: 
-               match marca:
-                   case _:
-                       descuento = 0.5
-            
+           case _:
+               descuento = 0.5          
+
        descuento_estetico = descuento * 100
-       
-       valor_final = precio_cantidad -  (precio_cantidad * descuento)
 
-       mensaje_secreto = ""
+       valor_final = valor_total_lamparas - (valor_total_lamparas * descuento)
 
-       match valor_final >= 4000:
-           
-           case valor_final:
-               valor_final -= (valor_final * 0.5)
-               mensaje_secreto = "Se agrego un descuento del 5%"
-        
+       mensaje_de_descuento_adicional = ""
 
-       alert("UTN", f"Su descuento es del {descuento_estetico}% dando como resultado {valor_final}. {mensaje_secreto}")
+    
+       if valor_final > 4000:
+            descuento_adicional = 0.05
+            valor_final = valor_final - (valor_final * descuento_adicional)
+            mensaje_de_descuento_adicional = "Obtuviste un adicional del 5%"
+
+       alert("UTN", f"Su valor final es {valor_final}, con un descuento del {descuento_estetico}%. {mensaje_de_descuento_adicional}")
+
+               
+                   
+                
 
        
 

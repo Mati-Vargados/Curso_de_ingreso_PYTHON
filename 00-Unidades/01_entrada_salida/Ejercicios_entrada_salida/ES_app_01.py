@@ -28,47 +28,83 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         
-        #AB = Diágonal mayor
-        #DC = Diágonal menor
-        #BD y BC = lados menores
-        #AD y AC = lados mayores
+       #costo 1 millon de km = 8 bitcoins
 
-        #Debemos tener en cuenta que la estructura del cometa estará dada por un perímetro de varillas de plástico y los correspondientes entrecruces (DC y AB) del mismo material para mantener la forma del cometa.
-        #El cometa estará construido con papel de alta resistencia. La cola del mismo se construirá con el mismo papel que el cuerpo y representará un 10% adicional del necesario para el cuerpo.
-        #Necesitamos saber cuántos Mts de varillas de plástico y cuántos de papel son necesarios para la construcción en masa de 10 cometas. Tener en cuenta que los valores de entrada están expresados en Cms.    
+        destino = prompt("UTN", "Elegir entre Marte, Luna o Titan") 
+
+        estacion_año = prompt("UTN", "Decinos una estacion del año (verano, primavera, otoño o invierno)")
+
+        cantidad_personas = prompt("UTN", "¿Cuantas personas son?")
+
+        cantidad_personas = int(cantidad_personas)
+
+        bitcoin = 8 
+
+        descuento_destino = 0 
+
+        agrega_porcentaje_estacion = 0 
+
+        match destino:
+
+            case "Marte":
+                valor = 60000000 * bitcoin
+
+            case "Luna":
+                valor = 500000 * (bitcoin / 2) # porque es medio millon 
+
+            case "Titan":
+                valor = 1300000000 * bitcoin
+
+        if cantidad_personas >= 5:
+                
+                match destino:
+
+                    case "Marte":
+                        descuento_destino = 0.5
+
+                        match estacion_año:
+
+                            case "verano":
+                                agrega_porcentaje_estacion = 0.1
+
+                            case _:
+                                agrega_porcentaje_estacion = 0.25
+
+                    case "Luna":
+                        descuento_destino = 0.4
+
+                        match estacion_año:
+
+                            case "verano":
+                                agrega_porcentaje_estacion = 0.15
+
+                            case _:
+                                agrega_porcentaje_estacion = 0.25
+
+                    case "Titan":
+                        descuento_destino = 0.3
+
+                        match estacion_año:
+
+                            case "verano":
+                                agrega_porcentaje_estacion = 0.1
+
+                            case _:
+                                agrega_porcentaje_estacion = 0.25    
         
-        diágonal_mayor = prompt("UTN", "Diagonal mayor")
-        diágonal_mayor = float(diágonal_mayor)
+        descuento_estetico = descuento_destino * 100 
 
-        diágonal_menor = prompt("UTN", "Diagonal menor")
-        diágonal_menor = float(diágonal_menor)
+        valor_descuento = valor - (valor * descuento_destino) 
 
-        lados_menores = prompt("UTN", "Lados menores")
-        lados_menores = float(lados_menores)
+        valor_sumado = valor_descuento + (valor_descuento * agrega_porcentaje_estacion)
 
-        lados_mayores = prompt("UTN", "Lados mayores")
-        lados_mayores = float(lados_mayores)
+        valor_final = valor_sumado * cantidad_personas #por las cantidades de personas
 
-        perimetro_principal = (lados_mayores + lados_menores) * 2  #porque son 4 lados "bd", "bc", "ad", "ac"
+        valor_final /= 1000000
 
-        perimetro_secundario = diágonal_mayor + diágonal_menor
-
-        perimetro_final = perimetro_principal + perimetro_secundario
-
-        area = (diágonal_mayor * diágonal_menor) / 2 #es el papel
-
-        cola = area * 0.1
-
-        perimetro_total = (perimetro_final/ 100) * 10
+        alert("UTN", f"El valor final del viaje es {valor_final} M de Bitcoins, su descuento es del {descuento_estetico}%")
         
-        papel = area + cola 
-
-        papel_total = (papel / 100) * 10
-                                                                                                                    # area metros cuadrados
-
-        alert("Cometa de Octavio", f"Necesitas {math.ceil(perimetro_total)}Mts de varillas, {math.ceil(papel_total)}Mts2 de cada color de papel para hacer 10 cometas")
-                                                #el math lo redondea para arriba
-
+        
 
 
 if __name__ == "__main__":
