@@ -38,8 +38,6 @@ class App(customtkinter.CTk):
 
         cantidad_personas = int(cantidad_personas)
 
-        bitcoin = 8 
-
         descuento_destino = 0 
 
         agrega_porcentaje_estacion = 0 
@@ -47,13 +45,13 @@ class App(customtkinter.CTk):
         match destino:
 
             case "Marte":
-                valor = 60000000 * bitcoin
+                valor = 480
 
             case "Luna":
-                valor = 500000 * (bitcoin / 2) # porque es medio millon 
-
+                valor = 4 # porque es medio millon 
+                        #la idea era hacer (bitcoin / 2) pero no lo tomaba y de paso le ahorro al procesador un trabajo mas.
             case "Titan":
-                valor = 1300000000 * bitcoin
+                valor = 10400
 
         if cantidad_personas >= 5:
                 
@@ -91,22 +89,25 @@ class App(customtkinter.CTk):
 
                             case _:
                                 agrega_porcentaje_estacion = 0.25    
+
+                mensaje_secreto_porcentaje = agrega_porcentaje_estacion * 100
+                mensaje_secreto = f"Al ir en {estacion_año} se le cobrara un {mensaje_secreto_porcentaje}% mas al valor con descuento."
         
         descuento_estetico = descuento_destino * 100 
 
-        valor_descuento = valor - (valor * descuento_destino) 
+        valor_descuento = float(valor - (valor * descuento_destino)) 
 
         valor_sumado = valor_descuento + (valor_descuento * agrega_porcentaje_estacion)
 
         valor_final = valor_sumado * cantidad_personas #por las cantidades de personas
 
-        valor_final /= 1000000
-
-        alert("UTN", f"El valor final del viaje es {valor_final} M de Bitcoins, su descuento es del {descuento_estetico}%")
-        
         
 
+        alert("UTN", f"El valor final del viaje es {valor_final} Bitcoins, su descuento es del {descuento_estetico}%. {mensaje_secreto}")
+                                                    #algunos pensarian en usar math ceil para que de redondo
+                                                        #pero el bitcoin se puede fraccionar
 
+        # Profes si leen esto, es la segunda vez que mando el trabajo ya que la primera descubri algunos errores. Saludos, buen finde
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
