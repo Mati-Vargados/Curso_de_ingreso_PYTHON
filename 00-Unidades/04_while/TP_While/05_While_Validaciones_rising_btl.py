@@ -70,14 +70,14 @@ class App(customtkinter.CTk):
       
 
         while edad < 18 or edad > 90:
-            edad = prompt("UTN", "Ingrese su Edad")
+            edad = prompt("ERROR", "Ingrese su Edad")
             edad = int(edad)
 
         while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a":
-            estado_civil = prompt("UTN", "Ingrese su Estado Civil (em mayuscula)")
+            estado_civil = prompt("ERROR", "Ingrese su Estado Civil (em mayuscula)")
 
-        while numero_legajo < 0000:
-            numero_legajo = prompt("UTN", "Ingrese su Numero de Legajo (4 digitos)")
+        while numero_legajo < 1000 or numero_legajo > 9999:
+            numero_legajo = prompt("ERROR", "Ingrese su Numero de Legajo (4 digitos)")
             numero_legajo = int(numero_legajo)
 
 

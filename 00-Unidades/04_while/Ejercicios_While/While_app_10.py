@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre: Matias 
-apellido: Vargados
+nombre:  
+apellido: 
 ---
 Ejercicio: while_10
 ---
@@ -27,7 +27,11 @@ Luego calcular:
 
     F. Diferencia entre la cantidad de los números positivos ingresados y los negativos
 
-Informar los resultados mediante alert()
+    G. El maximo. Solo uno
+
+    H. El minimo valor (incluyendo en que iteracion se encontro, solo la primera)
+
+    Informar los resultados mediante alert()
 
 '''
 
@@ -43,40 +47,55 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        
-        numero_positivo = 0 
-        cantidad_numero_positivo = 0 
+    
+        numeros_negativos = 0
+        cantidad_negativa = 0
 
-        numero_negativo = 0
-        cantidad_numero_negativo = 0
+        numero_postiva = 0
+        cantidad_positiva = 0
 
-        cantidad_ceros = 0 
+        contador_cero = 0
+
+        numero_maximo = 0
+        numero_minimo = 0
+
+        bandera_primer_ingreso = True
+
+        contador_primer_minimo = 0
+
 
         while True:
+            numero = prompt("UTN", "Ingrese un numero")
 
-            numero = prompt("UTN", "Ingrese su numero")
-            
             if numero == None:
                 break
-            
-            numero = int(numero)
+
+            numero = float(numero)
 
             if numero < 0:
-                numero_negativo += numero
-                cantidad_numero_negativo += 1 
+                numeros_negativos += numero   
+                cantidad_negativa += 1
 
-            if numero > 0:
-                numero_positivo += numero
-                cantidad_numero_positivo += 1 
+            elif numero > 0:
+                numero_postiva += numero
+                cantidad_positiva += 1 
 
-            if numero == 0:
-                cantidad_ceros += 1
+            else:
+                contador_cero += 1
 
+            if numero > numero_maximo or bandera_primer_ingreso == True:
+                numero_maximo = numero
+                
+            if numero < numero_minimo or bandera_primer_ingreso == True:
+                numero_minimo = numero
+                bandera_primer_ingreso = False
+                contador_primer_minimo = +1
+
+
+        diferencia = abs(cantidad_negativa - cantidad_positiva)
         
-        diferencia_menos_mas = numero_negativo + numero_positivo
-
-        alert("UTN", f"Hay {cantidad_ceros} ceros, {cantidad_numero_negativo} numeros negativos y {cantidad_numero_positivo} numeros positivos. Los negativos dan como resultado {numero_negativo}, los positivos {numero_positivo} y la diferencia des estos es de {diferencia_menos_mas}. ")
-            
+        mensaje = f"La suma de números de numeros negativos es: {numeros_negativos} \n La cantidad de numeros negativos es: {cantidad_negativa} \n La suma de números positivos es: {numero_postiva} \n La cantidad de números positivos es: {cantidad_positiva} \n Hay {contador_cero} ceros. \n La diferencia entre la cantidad de numeros positivos y negativos es: {diferencia}. \n El numero mayor es: {numero_maximo}. El número menor es {numero_minimo}."
+        alert("UTN", mensaje)
 
 
     
@@ -84,3 +103,5 @@ if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+

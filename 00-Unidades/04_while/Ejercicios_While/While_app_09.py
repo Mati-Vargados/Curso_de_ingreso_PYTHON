@@ -41,7 +41,9 @@ class App(customtkinter.CTk):
 
     def btn_comenzar_ingreso_on_click(self):
         
-        contador_iteracion = 0 
+        bandera_llave_acceso = False
+        maximo = 0
+        minimo = 0
 
         while True:
             numero = prompt("UTN", "Ingrese el numero")
@@ -51,17 +53,12 @@ class App(customtkinter.CTk):
             
             numero = int(numero)
 
-            if contador_iteracion == 0:
-                maximo = numero 
-                minimo = numero 
+            if numero > maximo or bandera_llave_acceso == False:
+                maximo = numero
 
-            else:
-                if numero > maximo:
-                    maximo = numero
-                if numero < minimo :
-                    minimo = numero 
-
-            contador_iteracion += 1
+            if numero < minimo or bandera_llave_acceso == False:
+                minimo = numero
+                bandera_llave_acceso = True
 
         self.txt_minimo.delete(0, "end")
 
