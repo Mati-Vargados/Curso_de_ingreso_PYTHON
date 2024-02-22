@@ -57,28 +57,35 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
+
+        seguir = True
         
-        apellido = prompt("UTN", "Ingrese su Apellido")
+        while seguir == True:
 
-        edad = prompt("UTN", "Ingrese su Edad")
-        edad = int(edad)
+            apellido = prompt("UTN", "Ingrese su Apellido")
 
-        estado_civil = prompt("UTN", "Ingrese su Estado Civil (en mayuscula y terminar en o/a)")
-        
-        numero_legajo = prompt("UTN", "Ingrese su Numero de Legajo (4 digitos)")
-        numero_legajo = int(numero_legajo)
-      
-
-        while edad < 18 or edad > 90:
-            edad = prompt("ERROR", "Ingrese su Edad")
+            edad = prompt("UTN", "Ingrese su Edad")
             edad = int(edad)
 
-        while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a":
-            estado_civil = prompt("ERROR", "Ingrese su Estado Civil (em mayuscula)")
-
-        while numero_legajo < 1000 or numero_legajo > 9999:
-            numero_legajo = prompt("ERROR", "Ingrese su Numero de Legajo (4 digitos)")
+            estado_civil = prompt("UTN", "Ingrese su Estado Civil (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+        
+            numero_legajo = prompt("UTN", "Ingrese su Numero de Legajo (4 digitos)")
             numero_legajo = int(numero_legajo)
+      
+
+            while edad < 18 or edad > 90:
+                edad = prompt("ERROR", "Ingrese su Edad")
+                edad = int(edad)
+
+            while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a":
+                estado_civil = prompt("ERROR", "Reingrese su Estado Civil (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+
+            while numero_legajo < 1000 or numero_legajo > 9999:
+                numero_legajo = prompt("ERROR", "Ingrese su Numero de Legajo (4 digitos)")
+                numero_legajo = int(numero_legajo)
+
+            seguir = False
+            
 
 
         self.txt_apellido.delete(0, "end")

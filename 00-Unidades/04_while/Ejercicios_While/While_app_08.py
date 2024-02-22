@@ -68,22 +68,6 @@ class App(customtkinter.CTk):
         self.txt_suma_acumulada.insert(0, acumulador_positivo)
         
         self.txt_producto.insert(0, acumulador_negativo)
-            
-
-        
-
-        
-
-
-            
-
-            
-            
-
-
-                
-
-        
 
     
 if __name__ == "__main__":

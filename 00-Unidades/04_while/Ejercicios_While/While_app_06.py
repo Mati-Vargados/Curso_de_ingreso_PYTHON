@@ -58,18 +58,7 @@ class App(customtkinter.CTk):
 
         self.txt_promedio.insert(0, promedio)  
 
-              
 
-            
-            
-
-
-        
-
-
-
-
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

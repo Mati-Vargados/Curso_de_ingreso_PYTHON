@@ -61,7 +61,7 @@ class App(customtkinter.CTk):
 
         bandera_primer_ingreso = True
 
-        contador_primer_minimo = 0
+        contador_total = 0 
 
 
         while True:
@@ -70,7 +70,9 @@ class App(customtkinter.CTk):
             if numero == None:
                 break
 
-            numero = float(numero)
+            numero = float(numero) 
+            
+            contador_total += 1
 
             if numero < 0:
                 numeros_negativos += numero   
@@ -85,16 +87,21 @@ class App(customtkinter.CTk):
 
             if numero > numero_maximo or bandera_primer_ingreso == True:
                 numero_maximo = numero
-                
+
+
             if numero < numero_minimo or bandera_primer_ingreso == True:
                 numero_minimo = numero
                 bandera_primer_ingreso = False
-                contador_primer_minimo = +1
+                primer_interacion_minimo = contador_total
 
+            
+
+
+           
 
         diferencia = abs(cantidad_negativa - cantidad_positiva)
         
-        mensaje = f"La suma de números de numeros negativos es: {numeros_negativos} \n La cantidad de numeros negativos es: {cantidad_negativa} \n La suma de números positivos es: {numero_postiva} \n La cantidad de números positivos es: {cantidad_positiva} \n Hay {contador_cero} ceros. \n La diferencia entre la cantidad de numeros positivos y negativos es: {diferencia}. \n El numero mayor es: {numero_maximo}. El número menor es {numero_minimo}."
+        mensaje = f"La suma de números de numeros negativos es: {numeros_negativos} \n La cantidad de numeros negativos es: {cantidad_negativa} \n La suma de números positivos es: {numero_postiva} \n La cantidad de números positivos es: {cantidad_positiva} \n Hay {contador_cero} ceros. \n La diferencia entre la cantidad de numeros positivos y negativos es: {diferencia}. \n El numero mayor es: {numero_maximo}. El número menor es {numero_minimo}. \n La primera iteracion del minimo fue en el {primer_interacion_minimo} "
         alert("UTN", mensaje)
 
 
