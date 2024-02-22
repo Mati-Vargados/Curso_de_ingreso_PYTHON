@@ -26,7 +26,24 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        numero = prompt("UTN", "Ingrese un numero para determinar si es primo o no")
+        numero = int(numero)
+        
+        bandera_divisor = False
+        
+        for i in range(2, numero): #cuenta desde el 2 hasta uno menos que el numero introducido 
+            if numero % i == 0:
+                bandera_divisor = True #si es divisor "no es primo"
+                break
+        if bandera_divisor == False: #si en el for no se encontro ni un solo divisor "es primo"
+            mensaje = "es primo"
+        else:
+            mensaje = "no es primo"
+
+        alert("UTN", mensaje)
+                
+            
         
     
 if __name__ == "__main__":

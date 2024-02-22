@@ -11,7 +11,9 @@ apellido:
 Ejercicio: for_08
 ---
 Enunciado:
-Al presionar el botón 'Mostrar' pedir un número. Mostrar cada número primo entre 1 y el número ingresado, e informar la cantidad de números primos encontrados.
+Al presionar el botón 'Mostrar' pedir un número.
+ Mostrar cada número primo entre 1 y el número ingresado
+ informar la cantidad de números primos encontrados.
 '''
 
 class App(customtkinter.CTk):
@@ -26,7 +28,28 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        
+        numero = int(prompt("numero",""))
+
+        cantidad_primos = 0  
+
+        for i in range(2, numero+1):
+
+            es_primo = True #el numero es primo hasta q se encuentre un divisor 
+
+            for j in range(2, i): # para encontrar un divisor se hace otro for
+
+                if i % j == 0: #esta sacando los divisores
+                    es_primo = False  
+                
+            if es_primo: #dejando solamente los primos
+                cantidad_primos += 1
+                print(i)
+
+        mensaje = f"cantidad de primos {cantidad_primos}"
+
+        alert("",mensaje)
+                
     
 if __name__ == "__main__":
     app = App()

@@ -96,6 +96,11 @@ class App(customtkinter.CTk):
         platea_debito = 0
         platea_efectivo = 0
 
+        guardar_nombre_debito = ""
+        guardar_edad_debito = 0
+
+        monto_total_platea = 0
+
         while blucle == True:
                
             nombre = prompt("UTN", "Ingrese su nombre: ")
@@ -111,21 +116,15 @@ class App(customtkinter.CTk):
                 genero = prompt("ERROR", "Reingrese su genero (Masculino, Femenino, Otro): ")
 
             entrada = prompt("UTN", "Ingrese su tipo de entrada (General, Campo delantero, Platea): ")
-            while entrada != "General" and general != "Campo delantero" and general != "Platea":
+            while entrada != "General" and entrada != "Campo delantero" and entrada != "Platea":
                 entrada = prompt("ERROR", "Reingrese su tipo entrada (General, Campo delantero, Platea): ")
  
             metodos_pagos =  prompt("UTN", "Ingrese su medio de pago (Credito, Efectivo, Debito): ")
-            while metodos_pagos != "Creditos" and metodos_pagos != "Efectivo" and metodos_pagos != "Debito":
+            while metodos_pagos != "Credito" and metodos_pagos != "Efectivo" and metodos_pagos != "Debito":
                 metodos_pagos = prompt("ERROR", "Reingrese su medio de pago (Credito, Efectivo, Debito): ")
- 
 
-
-        
-         
             match entrada:
 
-                
-                
                 case "General":
 
                     contador_general += 1 
@@ -221,6 +220,7 @@ class App(customtkinter.CTk):
         if entrada == "Platea":
             if edad % 6 == 0:
                 monto_total_platea = platea_credito + platea_debito + platea_efectivo
+            
 
         
                                         
