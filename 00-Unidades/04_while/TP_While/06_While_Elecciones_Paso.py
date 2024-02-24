@@ -36,10 +36,66 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         
-        while True:
+        candidato_mayor_votos = 0
+
+        candidato_menor_votos = 0
+
+        edad_candidato_promedio = 0
+
+        edad_contador = 0
+
+        cantidad_votos_total = 0 
+
+        bandera = True
+
+        bandea_edad = True
+
+        while bandera == True:
             
             nombre_candidato = prompt("UTN", "Ingrese el candidato")
+
+            edad_candidato = prompt("UTN", "Ingrese la edad del candidato")
+            edad_candidato = int(edad_candidato)
+            while edad_candidato < 25:
+                edad_candidato = prompt("ERROR", "Reingrese la edad del candidato (acordate tener mayor de 25)")
+                edad_candidato = int(edad_candidato)
             
+            cantidad_votos = prompt("UTN", "Ingrese la cantidad de votos")
+            cantidad_votos = int(cantidad_votos)
+            while cantidad_votos < 0:
+                cantidad_votos = prompt("ERROR", "Reingrese la cantidad de votos")
+                cantidad_votos = int(cantidad_votos)
+            
+            if cantidad_votos > candidato_mayor_votos or bandea_edad == True:
+                nombre_candidato_mayor_votos = nombre_candidato
+                candidato_mayor_votos = cantidad_votos
+
+
+            if cantidad_votos < candidato_menor_votos or bandea_edad == True:
+                nombre_candidato_menor_votos = nombre_candidato
+                candidato_menor_votos = cantidad_votos
+                edad_menor_votos = edad_candidato
+                bandea_edad = False
+
+            edad_contador += 1
+            edad_candidato_promedio += edad_candidato
+             
+
+            cantidad_votos_total += cantidad_votos
+
+            bandera = question("UTN", "¿Desea ingresar a otro usuario?")
+        
+        promedio_edades = edad_candidato_promedio / edad_contador
+
+        alert("UTN", f"El candidato con mas votos se llama {nombre_candidato_mayor_votos}. \nEl candidato con menos votos se llama {nombre_candidato_menor_votos} y tiene {edad_menor_votos} años. \nEl promedio de las edades es {promedio_edades}. \nHay en total {cantidad_votos_total} emitidos" )
+
+
+        
+
+        
+        
+            
+
 
 
 if __name__ == "__main__":

@@ -32,7 +32,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        iteraciones = self.txt_repetir.get()
+        iteraciones = int(iteraciones) #parceamos
+        
+
+        for i in range(iteraciones):
+            alert("UTN", f"Hola UTN FRA")
 
         
     

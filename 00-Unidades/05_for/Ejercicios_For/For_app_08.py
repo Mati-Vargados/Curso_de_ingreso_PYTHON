@@ -28,28 +28,29 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+
+        numero = prompt("UTN", "Ingrese un numero")
+
+        numero = int(numero)
+
+        cantidad_primos = 0 #| 4) (si toma mas de un numero no es primo ya que se estaria dividiendo por mas numeros)
+                         #10                    #|
+        for i in range(2, numero + 1):          #| 1) hice un for que de 10 vueltas
+            contador = 0                        #| 
+                                                #|
+            for j in range(2, i + 1):           #| 2) hice otro for para ver si es divisible por otros numeros
+                if i % j == 0:                  #|      
+                    contador += 1               #| 3) el contador tiene q tomar si el numero es divisible por si mismo  
+            if contador < 2:                    #|
+                cantidad_primos += 1            #|
+                print(i)                        #|
         
-        numero = int(prompt("numero",""))
+        mensaje = f"Hay {cantidad_primos} numeros primos"
 
-        cantidad_primos = 0  
+        alert("UTN", mensaje)
 
-        for i in range(2, numero+1):
-
-            es_primo = True #el numero es primo hasta q se encuentre un divisor 
-
-            for j in range(2, i): # para encontrar un divisor se hace otro for
-
-                if i % j == 0: #esta sacando los divisores
-                    es_primo = False  
-                
-            if es_primo: #dejando solamente los primos
-                cantidad_primos += 1
-                print(i)
-
-        mensaje = f"cantidad de primos {cantidad_primos}"
-
-        alert("",mensaje)
-                
+        
+        
     
 if __name__ == "__main__":
     app = App()

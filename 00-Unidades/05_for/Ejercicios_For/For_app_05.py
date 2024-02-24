@@ -37,8 +37,7 @@ class App(customtkinter.CTk):
             if i % 2 == 0:
                 print(i)
                 contador_numeros_pares += 1   
-            else:
-                contador_numeros_pares
+            
         print(f"Se encontraron {contador_numeros_pares} numeros pares")
         
     

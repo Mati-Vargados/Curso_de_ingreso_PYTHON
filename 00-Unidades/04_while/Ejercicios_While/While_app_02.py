@@ -101,6 +101,9 @@ class App(customtkinter.CTk):
 
         monto_total_platea = 0
 
+        bandera_numero_primo = True
+
+
         while blucle == True:
                
             nombre = prompt("UTN", "Ingrese su nombre: ")
@@ -179,9 +182,20 @@ class App(customtkinter.CTk):
                         case "Efectivo":
                             platea_efectivo = platea - (platea * 0)
 
-                    if edad % 2 != 0: #numeros primos
-                        contador_numeros_primos_platea += 1
+                     
+                    for i in range(2, edad + 1):
+                        contador_platea_primos = 0
+                        
+                        for j in range(2, i + 1):
+                            if i % j == 0:
+                                contador_platea_primos += 1
+                            
 
+                    if contador_platea_primos < 2:
+                        contador_numeros_primos_platea += 1
+                    
+            
+        
             blucle = question("UTN", "¿Desea ingrear a otra persona?")
 
            

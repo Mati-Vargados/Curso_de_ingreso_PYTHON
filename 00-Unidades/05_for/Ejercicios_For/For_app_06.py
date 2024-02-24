@@ -11,7 +11,8 @@ apellido:
 Ejercicio: for_06
 ---
 Enunciado:
-Al presionar el botón 'Mostrar' pedir un número. mostrar los números divisores desde el 1 al número ingresado, 
+Al presionar el botón 'Mostrar' pedir un número.
+mostrar los números divisores desde el 1 al número ingresado, 
 y mostrar la cantidad de números divisores encontrados.
 '''
 
@@ -28,17 +29,19 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         
-        numero = prompt("UTN", "Ingrese un numero")
-        numero = int(numero) #lo parceo
+        numero = prompt("UNT", "Ingrese un numero")
+        numero = int(numero)
 
-        contador_divisores = 0
-        
-        for i in range(1, numero+1): #el mas uno porque si no "no muestra el numero ingresado" (muestra un numero menos)
-            if numero % i == 0: # va contra i (i seria el valor de for)
-                print(f"Divisores encontrados: {i}")
-                contador_divisores += 1
-        print(f"se enontraron: {contador_divisores} divisores")
-           
+        cantidad_divisores = 0
+
+        for i in range(1, numero + 1):
+            if numero % i == 0:
+                print(i)
+                cantidad_divisores += 1
+
+        alert("UTN", f"Hay {cantidad_divisores} divisores")
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

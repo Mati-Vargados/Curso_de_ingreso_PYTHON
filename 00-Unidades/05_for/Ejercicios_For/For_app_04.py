@@ -11,7 +11,8 @@ apellido:
 Ejercicio: for_04
 ---
 Enunciado:
-Al presionar el botón 'Mostrar' pedir 10 valores por prompt o hasta que el usuario ingrese el valor 9 (se deberá utilizar 'BREAK').
+Al presionar el botón 'Mostrar' pedir 10 valores por prompt o 
+hasta que el usuario ingrese el valor 9 (se deberá utilizar 'BREAK').
 '''
 
 class App(customtkinter.CTk):
@@ -26,7 +27,24 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        cantidad_iteraciones = 0
+
+        for i in range(10):
+
+            numero = prompt("UTN", "Ingrese un numero: ")
+            numero = int(numero)
+
+            cantidad_iteraciones += 1
+
+            if cantidad_iteraciones == 9:
+                question("UTN", "Esta en el noveno valor. \n¿Desea continuar?")
+                    
+
+
+
+        
+
         
     
 if __name__ == "__main__":
