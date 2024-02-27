@@ -58,35 +58,25 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
 
-        seguir = True
-        
-        while seguir == True:
+        apellido = prompt("UTN", "Ingrese su apellido")
 
-            apellido = prompt("UTN", "Ingrese su Apellido")
-
-            edad = prompt("UTN", "Ingrese su Edad")
+        edad = prompt("UTN", "Ingrese su edad")
+        edad = int(edad)
+        while edad <= 18 or edad >= 90:
+            edad = prompt("ERROR", "Ingrese su nombre")
             edad = int(edad)
 
-            estado_civil = prompt("UTN", "Ingrese su Estado Civil (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
-        
-            numero_legajo = prompt("UTN", "Ingrese su Numero de Legajo (4 digitos)")
+        estado_civil = prompt("UTN", "Ingrese su estado civil (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+        while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a":
+            estado_civil = prompt("ERROR", "Reingrese su estado civil (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+
+        numero_legajo = prompt("UTN", "Ingrese un numero de legajo (de 4 digitos)")
+        numero_legajo = int(numero_legajo)
+        while numero_legajo < 1000 or numero_legajo > 9999:
+            numero_legajo = prompt("ERRIR", "Reingrese un numero de legajo (de 4 digitos)")
             numero_legajo = int(numero_legajo)
-      
 
-            while edad < 18 or edad > 90:
-                edad = prompt("ERROR", "Ingrese su Edad")
-                edad = int(edad)
-
-            while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a":
-                estado_civil = prompt("ERROR", "Reingrese su Estado Civil (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
-
-            while numero_legajo < 1000 or numero_legajo > 9999:
-                numero_legajo = prompt("ERROR", "Ingrese su Numero de Legajo (4 digitos)")
-                numero_legajo = int(numero_legajo)
-
-            seguir = False
             
-
 
         self.txt_apellido.delete(0, "end")
 
@@ -96,13 +86,13 @@ class App(customtkinter.CTk):
 
         self.txt_legajo.delete(0, "end")
 
-        self.txt_apellido.insert(0, apellido)
+        self.txt_apellido.insert(apellido)
+        
+        self.txt_edad.insert(edad)
 
-        self.txt_edad.insert(0, edad)
+        self.txt_tipo.insert(estado_civil)
 
-        self.txt_tipo.insert(0, estado_civil)
-
-        self.txt_legajo.insert(0, numero_legajo)
+        self.txt_legajo.insert(numero_legajo)
         
 
 
