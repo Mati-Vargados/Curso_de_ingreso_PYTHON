@@ -56,6 +56,8 @@ class App(customtkinter.CTk):
 
         bandera = True
 
+        importe_ganado_maximo = 0
+
         bandera_importe_ganado_maximo = True
 
         acumulador_dinero_ruleta = 0 
@@ -66,13 +68,9 @@ class App(customtkinter.CTk):
 
         contador_personas_poker = 0 
 
-        acumulador_dinero_ruleta_mayor_quince_mil = 0
+        contador_personas_no_poker = 0
 
-        acumulador_dinero_tragamonedas_mayor_quince_mil = 0
-
-        contador_personas_ruleta_mayor_quince_mil = 0 
-
-        contador_personas_tragamonedas_mayor_quince_mil = 0 
+        acumuladoror_dinero_no_poker = 0
         
         acumulador_dinero_poker = 0
 
@@ -80,7 +78,7 @@ class App(customtkinter.CTk):
 
         
 
-        while bandera == True:
+        while bandera:
 
             nombre = prompt("UTN", "Ingrese su nombre")
 
@@ -99,7 +97,7 @@ class App(customtkinter.CTk):
                 juego = prompt("ERROR", "Reingrese su Juego (Ruleta, Poker, Tragamonedas)")
 
             #Nombre y género de la persona que más ganó.
-            if bandera_importe_ganado_maximo == True or importe_ganado > importe_ganado_maximo:
+            if importe_ganado > importe_ganado_maximo or bandera_importe_ganado_maximo == True:
                 importe_ganado_maximo = importe_ganado
                 nombre_importe_ganado_maximo = nombre
                 genero_importe_ganado_maximo = genero 
@@ -111,22 +109,21 @@ class App(customtkinter.CTk):
                 case "Ruleta":
                     contador_personas_ruleta = contador_personas_ruleta + 1
                     acumulador_dinero_ruleta = acumulador_dinero_ruleta + importe_ganado
-                    if importe_ganado > 15000:
-                        acumulador_dinero_ruleta_mayor_quince_mil = acumulador_dinero_ruleta_mayor_quince_mil + importe_ganado
-                        contador_personas_ruleta_mayor_quince_mil = contador_personas_ruleta_mayor_quince_mil + 1 
+                    
 
                 case "Tragamonedas":
                     contador_personas_tragamonedas = contador_personas_tragamonedas + 1
                     acumulador_dinero_tragamonedas = acumulador_dinero_tragamonedas + importe_ganado
-                    if importe_ganado > 15000:
-                        acumulador_dinero_tragamonedas_mayor_quince_mil = acumulador_dinero_tragamonedas_mayor_quince_mil + importe_ganado
-                        contador_personas_tragamonedas_mayor_quince_mil = contador_personas_tragamonedas_mayor_quince_mil + 1
+                    
 
                 case "Poker":
                     contador_personas_poker = contador_personas_poker + 1
                     acumulador_dinero_poker = acumulador_dinero_poker + importe_ganado
 
-                                
+            if juego != "Poker" and importe_ganado > 15000:
+                contador_personas_no_poker = contador_personas_no_poker + 1
+                acumuladoror_dinero_no_poker = acumuladoror_dinero_no_poker + importe_ganado   
+
             bandera = question("UTN", "¿Desea ingresar a otra persona?")
         
         #Porcentaje de personas que jugaron en el Tragamonedas.
@@ -143,13 +140,13 @@ class App(customtkinter.CTk):
             juego_menos_elegido = "Tragamonedas"
         
         #Porcentaje de dinero en función de cada juego
-        contador_porcentaje_total_dinero = acumulador_dinero_ruleta + acumulador_dinero_poker + acumulador_dinero_tragamonedas
+        acumulador_dinero_total = acumulador_dinero_ruleta + acumulador_dinero_poker + acumulador_dinero_tragamonedas
 
-        porcentaje_dinero_ruleta = (acumulador_dinero_ruleta * 100) / contador_porcentaje_total_dinero
+        porcentaje_dinero_ruleta = (acumulador_dinero_ruleta * 100) / acumulador_dinero_total
 
-        porcentaje_dinero_poker = (acumulador_dinero_poker * 100) / contador_porcentaje_total_dinero
+        porcentaje_dinero_poker = (acumulador_dinero_poker * 100) / acumulador_dinero_total
 
-        porcentaje_dinero_tragamonedas = (acumulador_dinero_tragamonedas * 100) / contador_porcentaje_total_dinero
+        porcentaje_dinero_tragamonedas = (acumulador_dinero_tragamonedas * 100) / acumulador_dinero_total
             
         print(f"La perosna que mas dinero gano se llama {nombre_importe_ganado_maximo} y su genero es {genero_importe_ganado_maximo}")
         #Promedio de dinero ganado en Ruleta.
@@ -162,11 +159,9 @@ class App(customtkinter.CTk):
         print(f"El juego menos elegido es {juego_menos_elegido}")
 
         #Promedio de importe ganado de las personas que NO jugaron Poker, siempre y cuando el importe supere los $15000
-        contador_personas_ruleta_tragamonedas = contador_personas_ruleta_mayor_quince_mil + contador_personas_tragamonedas_mayor_quince_mil
-        acumulador_diero_ruleta_tragamonedas = acumulador_dinero_ruleta_mayor_quince_mil + acumulador_dinero_tragamonedas_mayor_quince_mil
-
-        if contador_personas_ruleta_tragamonedas > 0:
-            promedio_ruleta_tragamonedas = acumulador_diero_ruleta_tragamonedas / contador_personas_ruleta_tragamonedas
+    
+        if contador_personas_no_poker > 0:
+            promedio_ruleta_tragamonedas = acumuladoror_dinero_no_poker / contador_personas_no_poker
             print(f"El promedio del importe ganados de las peronas que no jugaron al Poker y superan los $15000 ganados es de ${promedio_ruleta_tragamonedas}")
 
         print("UTN", f"El porcentaje de dinero de cada juego es: \nRuleta: {porcentaje_dinero_ruleta}% \nPoker: {porcentaje_dinero_poker}% \nTragamonedas: {porcentaje_dinero_tragamonedas}%")
