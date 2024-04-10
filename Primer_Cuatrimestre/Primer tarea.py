@@ -39,17 +39,14 @@ for i in range(5):
 
     match stock:
         case "barbijo":
-            unidad_barijos = unidad_barijos + 1 
-            if unidad_barijos == 1 or precio > precio_barbijo_mas_caro:
+            contador_barijos = contador_barijos + 1 
+            if contador_barijos == 1 or precio > precio_barbijo_mas_caro:
                 fabricante_barbijos_mas_caro = fabricante
                 precio_barbijo_mas_caro = precio
-                unidad_barbijo_mas_caro = cantidad_unidades
+                contador_barbijo_mas_caro = cantidad_unidades 
 
         case "jabon":
             acumulador_jabon = acumulador_jabon + cantidad_unidades
-        
-        case "alcohol":
-            unidad_alcohol = unidad_alcohol + 1
     
     if i == 0 or cantidad_unidades > max_unidades:
         max_unidades = cantidad_unidades
