@@ -12,11 +12,11 @@
 def numero_entero()-> int:
 
     """
-    - Le solisitara al usuario que ingrese un numero entero (int)
+    - Le solisitara al usuario que ingrese un numero entero (int).
 
-    - No acepta parametros
+    - No acepta parametros.
 
-    - Devuelve el numero ingresado
+    - Devuelve el numero ingresado (con la variable "numero_1").
 
     """
 
@@ -30,11 +30,11 @@ def numero_entero()-> int:
 def numero_flotante()-> float:
 
     """
-    - Le solisitara un numero flotante (float) al usuario
+    - Le solisitara un numero flotante (float) al usuario.
 
-    - No acepta parametros
+    - No acepta parametros.
 
-    - Devuelve el numero ingresado
+    - Devuelve el numero ingresado (con la variable "numero_2").
     
     """
 
@@ -47,11 +47,11 @@ def numero_flotante()-> float:
 
 def cadena()-> str:
     """
-    - Se le pedira al usuario que ingrese un texto (str)
+    - Se le pedira al usuario que ingrese un texto (str).
 
-    - No acepta parametros
+    - No acepta parametros.
 
-    - Devuelve el texto ingresado
+    - Devuelve el texto ingresado (con la variable "texto_ingresar").
     
     """
 
@@ -67,9 +67,11 @@ def numero_entero_edad(mensaje_edad:str, rango_1:int, rango_2:int)-> int:
     - El mensaje sirve para avisar al que inicie el programa cuando tiene que ingresar su edad y los rangos
     son para ver los limites aproximado de una edad. Esta funcion sirve para validar la edad.
 
-    - Se aceptan 3 parametros (1 para la edad y otros dos para marcar los rangos de las edades)
-
-    - Devuelve la edad validada
+    - Se aceptan 3 parametros:
+        - mensaje edad:str
+        - rango_1:int
+        - rango_2:int
+    - Devuelve la edad validada (con la variable "numero_1").
 
     """
     numero_1 = input(mensaje_edad)
@@ -87,7 +89,12 @@ def numero_entero_altura(mensaje_altura:str, rango_1:float, rango_2:float)-> flo
     """
     - Esta funcion marca la altura que ingrese una persona, partiendo de la base sobre posibles alturas realistas.
 
-    - Acepta 3 parametros (Una sirve para avisar al que ejecute el programa cuando y donde tiene que ingresar su altura)
+    - Acepta 3 parametros:
+        - mensaje_altura:str
+        - rango_1:int
+        - rango_2:int
+
+    - Devuelve la altura validada (con la variable "numero_1").
     """
     numero_1 = input(mensaje_altura)
     numero_1 = float(numero_1)
@@ -102,14 +109,25 @@ altura = numero_entero_altura(mensaje_altura, 0.1, 2.5)
 
 
 def cadena_marca(mensaje_marca:str, marca_1:str, marca_2:str, marca_3:str)-> str:
+    """
+    - Esta funcion sirve para confirmar que tipo la marca de tu celular.
 
-    texto_ingresar = input(mensaje_marca)
-    texto_ingresar = texto_ingresar.capitalize()
-    while texto_ingresar != marca_1 and texto_ingresar != marca_2 and texto_ingresar != marca_3:
-        texto_ingresar = input(mensaje_marca)
-        texto_ingresar = texto_ingresar.capitalize()
+    - Acepta 3 parametros ricibidos por la variable "mensaje_marca":
+        - mensaje_marca:str
+        - marca_1:str
+        - marca_2:str
+        - marca_3:str
 
-    return texto_ingresar
+    - Devuelve la validacion de la marca seleccionada (usando la variable "marca").
+    """
+
+    marca = input(mensaje_marca)
+    marca = marca.capitalize()
+    while marca != marca_1 and marca != marca_2 and marca != marca_3:
+        marca = input(mensaje_marca)
+        marca = marca.capitalize()
+
+    return marca
 
 mensaje_marca = "Ingrese su marca de celular (Iphone, Samsung o Motorola): "
 marca = cadena_marca(mensaje_marca, "Iphone", "Samsung", "Motorola")
@@ -117,6 +135,14 @@ marca = cadena_marca(mensaje_marca, "Iphone", "Samsung", "Motorola")
 #5______________________________________________________________________________________________
 
 def area_circulo(radio:int)-> int:
+    """
+    - Sivre para informar sobre el area de un circulo.
+
+    - Usa un solo parametro:
+        - radio:int
+
+    - Devuelve el area calculada (con la variable "area").
+    """
 
     radio = input("Ingrese el radio del circulo: ")
     radio = int(radio)
@@ -130,7 +156,13 @@ area = area_circulo(mensaje_radio)
 #6______________________________________________________________________________________________
 
 def par_impar()-> int:
+    """
+    - Sirve para indicar si el numero ingresado es par o impar.
+    
+    - No se ingreso ningun parametro.
 
+    - No retorna nada.
+    """
     numero_1 = input("Ingrese el numero par o impar: ")
     numero_1 = int(numero_1)
 
@@ -144,7 +176,13 @@ par_impar()
 #7______________________________________________________________________________________________
 
 def maximo_numeros()-> float:
+    """
+    - Se ingresan 3 numeros y de esos numeros se guarda el mas alto.
 
+    - No se ingreso ningun parametro.
+
+    - Se retorna el numero mas grande ingresado (usando la variable "numero_maximo").
+    """
     for i in range(3):
 
         numero = input("Torneo numero maximo ")
@@ -159,8 +197,16 @@ maximo_numeros()
 
 #8______________________________________________________________________________________________
 
-def calcular_potencia_numera(numero_1:float, numero_2:float)-> float:
+def calcular_potencia_numero(numero_1:float, numero_2:float)-> float:
+    """
+    - Sirve para calcular la potencia de un numero ingresado el numero que lo eleve.
 
+    - Hay 2 parametros que son recibidos por "numero_1" y "numero_2":
+        - numero_1:float
+        - numero_2:float
+
+    - Devuelve la potencia del numero (con la variable "potencia_numero")
+    """
     potencia_numero = numero_1 ** numero_2
 
     return potencia_numero
@@ -171,7 +217,7 @@ numero_1 = float(numero_1)
 numero_2 = input("Ingrese la potencia para el numero anterior: ")
 numero_2 = float(numero_2)
 
-potencia_numero = calcular_potencia_numera(numero_1, numero_2)
+potencia_numero = calcular_potencia_numero(numero_1, numero_2)
 
 
 
