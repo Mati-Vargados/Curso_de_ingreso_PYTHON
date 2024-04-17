@@ -134,28 +134,27 @@ marca = cadena_marca(mensaje_marca, "Iphone", "Samsung", "Motorola")
 
 #5______________________________________________________________________________________________
 
-def area_circulo(radio:int)-> int:
+def calcular_area_circulo(radio:float)-> float:
     """
     - Sivre para informar sobre el area de un circulo.
 
     - Usa un solo parametro:
-        - radio:int
+        - radio:float
 
     - Devuelve el area calculada (con la variable "area").
     """
-
-    radio = input("Ingrese el radio del circulo: ")
-    radio = int(radio)
-    area = 3.14 * (radio * radio)
+    pi = 3.14
+    area = pi * (radio * radio)
 
     return area 
 
-mensaje_radio = "Ingrese el radio del circulo: "
-area = area_circulo(mensaje_radio)
+radio = input("Ingrese el radio del circulo: ")
+radio = float(radio)
+area = calcular_area_circulo(radio)
 
 #6______________________________________________________________________________________________
 
-def par_impar()-> int:
+def par_impar() -> None:
     """
     - Sirve para indicar si el numero ingresado es par o impar.
     
@@ -167,9 +166,11 @@ def par_impar()-> int:
     numero_1 = int(numero_1)
 
     if numero_1 % 2 == 0:
-        print("Es par")
+        mensaje = "Es par"
     else:
-        print("Es impar")
+        mensaje = "Es impar"
+    
+    print(mensaje)
 
 par_impar()
 
