@@ -1,12 +1,11 @@
 
 #1________________________________________________________________________________________________________________
-def calcular_altura_cm(mensaje:str, mensaje_error:str, minimo:int, maximo:int, reintentos:int)-> int|None:
+def solicitar_int(mensaje:str, mensaje_error:str, minimo:int, maximo:int, reintentos:int)-> int|None:
     iteraciones = 0
    
     mensaje = input(mensaje)
     mensaje = int(mensaje)
     while (mensaje < minimo or mensaje > maximo):
-
         iteraciones = iteraciones + 1
         if iteraciones == reintentos:
             return None #corta la funcion
@@ -17,10 +16,10 @@ def calcular_altura_cm(mensaje:str, mensaje_error:str, minimo:int, maximo:int, r
     return mensaje
     
 
-calcular_altura_cm("Ingrese su altura en cm: ", "ERROR. Reingrese su altura en cm: ", 1, 230, 3)
+solicitar_int("Ingrese su altura en cm: ", "ERROR. Reingrese su altura en cm: ", 1, 230, 3)
 
 
-def calcular_altura_m(mensaje:str, mensaje_error:str, minimo:float, maximo:float, reintentos:float)-> float|None:
+def solicitar_float(mensaje:str, mensaje_error:str, minimo:float, maximo:float, reintentos:float)-> float|None:
     iteraciones = 0
    
     mensaje = input(mensaje)
@@ -37,7 +36,7 @@ def calcular_altura_m(mensaje:str, mensaje_error:str, minimo:float, maximo:float
     return mensaje
     
 
-calcular_altura_m("Ingrese su altura en m: ", "ERROR. Reingrese su altura en m: ", 1, 230, 3)
+solicitar_float("Ingrese su altura en m: ", "ERROR. Reingrese su altura en m: ", 1, 230, 3)
 
 #2________________________________________________________________________________________________________________
 

@@ -61,7 +61,7 @@ def cadena()-> str:
 
 #4______________________________________________________________________________________________
 
-def numero_entero_edad(mensaje_edad:str, rango_1:int, rango_2:int)-> int:
+def numero_entero_edad(mensaje_edad:str, rango_1:int, rango_2:int)-> int: 
     """
 
     - El mensaje sirve para avisar al que inicie el programa cuando tiene que ingresar su edad y los rangos
