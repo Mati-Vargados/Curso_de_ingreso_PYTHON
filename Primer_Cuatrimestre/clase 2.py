@@ -200,7 +200,7 @@ maximo_numeros()
 
 def calcular_potencia_numero(numero_1:float, numero_2:float)-> float:
     """
-    - Sirve para calcular la potencia de un numero ingresado el numero que lo eleve.
+    - Sirve para calcular la potencia de un numero ingresado y el numero que lo eleve.
 
     - Hay 2 parametros que son recibidos por "numero_1" y "numero_2":
         - numero_1:float
