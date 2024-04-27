@@ -1,6 +1,6 @@
 #Escribir una función que recibe una lista de enteros, la misma calculará y devolverá el promedio de todos los números.
 
-lista = [5, 5, 3, 4]
+lista = [1, 2, 4, 4]
 
 
 def promedio_numero(lista: list)-> int:
@@ -17,6 +17,7 @@ def promedio_numero(lista: list)-> int:
     
     promedio = numeros_listas / len(lista)
 
+    return promedio
 
 
 #Escribir una función parecida a la anterior, pero la misma deberá calcular y devolver el promedio de los números positivos.
@@ -40,9 +41,14 @@ def promedio_numero_positivo(lista: list)-> int:
             numeros_positivos = numeros_positivos + lista[i] 
             contador_numero_postivo = contador_numero_postivo + 1
 
-    promedio_numero_postivo = numeros_positivos / contador_numero_postivo
+    if contador_numero_postivo != 0:
+        promedio_numero_positivo = numeros_positivos / contador_numero_postivo
+    else:
+        promedio_numero_positivo = 0
 
+    return promedio_numero_positivo 
 
+print(promedio_numero_positivo(lista))
 
 #Escribir una función que calcule y retorne el producto de todos los elementos de la lista que recibe como parámetro.
 
@@ -54,22 +60,18 @@ def multimplicacion_lista(lista: list)-> int:
         - lista: list
     - Retorna el producto de todos los elementos.
     """
+    producto_numero_lista = 1
 
     for i in range(len(lista)):
-        
-        if i == 0:
-            producto_numero_lista = lista[0]
-        else:
-            producto_numero_lista = producto_numero_lista * lista[i] 
+        producto_numero_lista = producto_numero_lista * lista[i] 
     
     
     return producto_numero_lista
 
 
-
 #Escribir una función que reciba como parámetros una lista de enteros y retorne la posición del valor máximo encontrado.
 
-def maximo_posicion(lista):
+def maximo_posicion(lista:list)-> int:
     """
     - Esta funcion recibe como parámetros una lista de enteros y retorne la posición del valor máximo encontrado.
     
@@ -89,14 +91,14 @@ def maximo_posicion(lista):
 #Escribir una función que reciba como parámetros una lista de enteros y muestre la/las posiciones en donde se encuentra el valor máximo hallado.
 
 
-def encontrar_varios_maximos(lista):
+def encontrar_varios_maximos(lista:list)-> None: #No devuelve nada
     """
-    - Esta funcion recibe como parámetros una lista de enteros y muestre la/las posiciones en donde se encuentra el valor máximo hallado.
+    - Esta funcion recibe como parámetros una lista de enteros y muestre la/las posiciones (mediante un print) en donde se encuentra el valor máximo hallado.
 
     - Los parametros son:
         - lista: list (una lista predefinida)
     
-    - Retorna las posiciones de los numeros maximos 
+    - No tiene un retorno (retorno = None).
     """
     for i in range(len(lista)):
     
@@ -106,7 +108,7 @@ def encontrar_varios_maximos(lista):
     for i in range(len(lista)):
         
         if numero_maximo == lista[i]:
-            posicion = i
+            posicion = i + 1
             print(f"El numero maximo es {numero_maximo} y se encontro en la posicion {posicion}")
 
 encontrar_varios_maximos(lista)
