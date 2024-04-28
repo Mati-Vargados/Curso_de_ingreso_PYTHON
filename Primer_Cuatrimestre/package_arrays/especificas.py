@@ -17,6 +17,8 @@ def calcular_positividad(numero:int) -> bool | None:
 
     return postitividad
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 def calcular_numeros_pares_impares(numero: int)-> bool:
     """
     - Esta funcion se encarga de ver si el numero ingresado es par o impar; mediante la variable "par" se le da un valor positivo o negativo (True or False) al parametro ingresado.
@@ -34,3 +36,4 @@ def calcular_numeros_pares_impares(numero: int)-> bool:
     
     return par
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------

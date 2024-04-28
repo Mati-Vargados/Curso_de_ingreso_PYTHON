@@ -17,6 +17,7 @@ def ingresar_numeros_enteros (lista:list)-> list:
     
     return lista
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 def contador_positivos_negativos(lista:list)-> None:
     """ 
     - Esta funcion se encarga (con ayuda de la funcion "calcular_positividad") de contar la cantidad de numeros positivos y negativos de una lista. 
@@ -35,6 +36,8 @@ def contador_positivos_negativos(lista:list)-> None:
 
     print(f"Hay {contador_postivo} numeros positivos y {contador_negativo} negativos.")
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 def sumar_numeros_pares(lista:list)-> None:
     """
     - Esta funcion suma los numeros pares de la lista (con ayuda de la funcion "calcular_numeros_pares_impares") y luego imprime el valor final.
@@ -50,6 +53,8 @@ def sumar_numeros_pares(lista:list)-> None:
             acumulador_numeros_pares = acumulador_numeros_pares + lista[i]
 
     print(f"La suma de todos los numeros pares es: {acumulador_numeros_pares}")
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def calcular_maximo_numeros_impares(lista:list)-> None:
     """
@@ -68,6 +73,8 @@ def calcular_maximo_numeros_impares(lista:list)-> None:
 
     print(f"El numero impar mas grande es: {numero_impar_maximo}")
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 def imprimir_numeros_ingresados(lista:list)-> None:
     """
     - Esta funcion imprime los numeros ingresados de una lista con su posicion.
@@ -78,6 +85,8 @@ def imprimir_numeros_ingresados(lista:list)-> None:
     for i in range(len(lista)):
         posicion = i + 1
         print(f"En la posicion {posicion} se encuentra el numero {lista[i]}.")
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def imprimir_numeros_pares(lista:list)-> None:
     """
@@ -91,6 +100,8 @@ def imprimir_numeros_pares(lista:list)-> None:
             posicion = i + 1
             print(f"En la poisicion {posicion} se encontro el numero {lista[i]}.")
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 def imprimir_indices_impares(lista:list)-> None:
     """
     - Esta funcion imprime los numeros que estan en los indices impares de una lista (con ayuda de calcular_numeros_pares_impares).
@@ -102,4 +113,4 @@ def imprimir_indices_impares(lista:list)-> None:
         if calcular_numeros_pares_impares(i) == False:
             print(f"En el indice {i} se encontro el numero {lista[i]}.")
 
-
+#------------------------------------------------------------------------------------------------------------------------------------------------------------

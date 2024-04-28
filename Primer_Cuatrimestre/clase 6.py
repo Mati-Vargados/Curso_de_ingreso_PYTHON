@@ -4,7 +4,10 @@ lista = [-1] * 10
 
 ingreso = False
 
+mensaje = print("Error, primero debe ingresar los datos (opcion A).")
+
 while True:
+
     print("""
         A- Pedir el ingreso de 10 números enteros entre -1000 y 1000. 
         B- Mostrar la cantidad de números positivos y negativos.
@@ -15,6 +18,7 @@ while True:
         G- Imprimir los números de los índices impares.  
         H- Salir.
           """)
+    
     letra = input("Ingrese una selecccion: ")
     letra = letra.upper()
     
@@ -23,26 +27,54 @@ while True:
         letra = letra.upper()
         
     match letra:
+
         case "A":
+
             ingresar_numeros_enteros(lista)
             ingreso = True
+
         case "B":
+
             if ingreso == True:
                 contador_positivos_negativos(lista)
             else:
-                print("Error, primero debe ingresar los datos (opcion A).")
+                mensaje
+
         case "C":
-            sumar_numeros_pares(lista)
+
+            if ingreso == True:
+                sumar_numeros_pares(lista)
+            else:
+                mensaje
+
         case "D":
-            calcular_maximo_numeros_impares(lista)
+
+            if ingreso == True:
+                calcular_maximo_numeros_impares(lista)
+            else:
+                mensaje
+
         case "E":
-            imprimir_numeros_ingresados(lista)
+
+            if ingreso == True:
+                imprimir_numeros_ingresados(lista)
+            else:
+                mensaje
+
         case "F":
-            imprimir_numeros_pares(lista)
+
+            if ingreso == True:
+                imprimir_numeros_pares(lista)
+            else:
+                mensaje
+
         case "G":
+
             if ingreso == True:
                 imprimir_indices_impares(lista)
-            
+            else:
+                mensaje
+
         case "H":
             print("¡Gracias por usar nuestro sistema!")
             break
