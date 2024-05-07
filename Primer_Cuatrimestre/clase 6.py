@@ -4,8 +4,6 @@ lista = [-1] * 10
 
 ingreso = False
 
-mensaje = print("Error, primero debe ingresar los datos (opcion A).")
-
 while True:
 
     print("""
@@ -38,43 +36,45 @@ while True:
             if ingreso == True:
                 contador_positivos_negativos(lista)
             else:
-                mensaje
+                print("Error, primero debe ingresar los datos (opcion A).")
 
         case "C":
 
             if ingreso == True:
                 sumar_numeros_pares(lista)
             else:
-                mensaje
+                print("Error, primero debe ingresar los datos (opcion A).")
 
         case "D":
 
             if ingreso == True:
                 calcular_maximo_numeros_impares(lista)
             else:
-                mensaje
+                print("Error, primero debe ingresar los datos (opcion A).")
 
         case "E":
 
             if ingreso == True:
                 imprimir_numeros_ingresados(lista)
             else:
-                mensaje
+                print("Error, primero debe ingresar los datos (opcion A).")
 
         case "F":
 
             if ingreso == True:
                 imprimir_numeros_pares(lista)
             else:
-                mensaje
+                print("Error, primero debe ingresar los datos (opcion A).")
 
         case "G":
 
             if ingreso == True:
                 imprimir_indices_impares(lista)
             else:
-                mensaje
+                print("Error, primero debe ingresar los datos (opcion A).")
 
         case "H":
             print("¡Gracias por usar nuestro sistema!")
             break
+
+        
