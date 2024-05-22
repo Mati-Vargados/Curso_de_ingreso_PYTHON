@@ -23,11 +23,6 @@ def validate_number(numero: int | float, mensaje_error: str, minimo: int, maximo
 
 
 
-def validate_lenght(cadena: str, longitud: int, mensaje_error: str, reintentos: int) -> str|None:
-    iteraciones = 0
-    while len(cadena) != longitud:
-        if iteraciones == reintentos:
-            return None  # Corta la función si se alcanza el límite de reintentos
-        cadena = input(mensaje_error)
-        iteraciones += 1
-    return cadena
+def validate_length(cadena):
+
+    pass

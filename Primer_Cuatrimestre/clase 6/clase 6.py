@@ -20,7 +20,15 @@ while True:
     letra = input("Ingrese una selecccion: ")
     letra = letra.upper()
     
-    while letra != "A" and letra != "B" and letra != "C" and letra != "D" and letra != "E" and letra != "F" and letra != "G" and letra != "H":
+    while (letra != "A" and 
+           letra != "B" and 
+           letra != "C" and 
+           letra != "D" and 
+           letra != "E" and 
+           letra != "F" and 
+           letra != "G" and 
+           letra != "H"):
+    
         letra = input("ERROR. Ingrese una selecccion valida: ")
         letra = letra.upper()
         
